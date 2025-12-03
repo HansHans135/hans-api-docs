@@ -1,0 +1,98 @@
+---
+title: 語言支援列表
+description: GET /melotts/languages
+---
+
+獲取 API Key 資訊。
+
+## 請求
+
+```
+GET /melotts/languages
+```
+
+### 請求範例
+
+<Tabs items={["cURL", "Python"]}>
+  <Tab value="cURL">
+```bash
+curl -X GET https://api.hans0805.me/api/v1/melotts/languages
+```
+  </Tab>
+
+  <Tab value="Python">
+```python
+import requests
+
+response = requests.get(
+    'https://api.hans0805.me/api/v1/melotts/languages'
+)
+```
+  </Tab>
+</Tabs>
+
+## 回應
+
+
+### 成功回應 `200 OK`
+
+```json
+{
+  "languages": {
+    "EN": {
+      "description": {
+        "EN-AU": "Australian accent",
+        "EN-BR": "British accent",
+        "EN-Default": "Default accent",
+        "EN-US": "American accent",
+        "EN_INDIA": "Indian accent"
+      },
+      "name": "English",
+      "speakers": [
+        "EN-US",
+        "EN-BR",
+        "EN_INDIA",
+        "EN-AU",
+        "EN-Default"
+      ]
+    },
+    "ES": {
+      "description": {
+        "ES": "Spanish"
+      },
+      "name": "Spanish",
+      "speakers": [
+        "ES"
+      ]
+    },
+    "FR": {
+      "description": {
+        "FR": "French"
+      },
+      "name": "French",
+      "speakers": [
+        "FR"
+      ]
+    },
+    "KR": {
+      "description": {
+        "KR": "Korean"
+      },
+      "name": "Korean",
+      "speakers": [
+        "KR"
+      ]
+    },
+    "ZH": {
+      "description": {
+        "ZH": "Chinese (Mandarin)"
+      },
+      "name": "Chinese",
+      "speakers": [
+        "ZH"
+      ]
+    }
+  },
+  "success": true
+}
+```

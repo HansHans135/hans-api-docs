@@ -1,0 +1,52 @@
+---
+title: 獲取 API Key 資訊
+description: GET /status
+---
+
+獲取 API Key 資訊。
+
+## 請求
+
+```
+GET /status
+```
+
+### 請求範例
+
+<Tabs items={["cURL", "Python"]}>
+  <Tab value="cURL">
+```bash
+curl https://api.hans0805.me/api/v1/status \
+  -H "Authorization: hans_xxxxx"
+```
+  </Tab>
+
+  <Tab value="Python">
+```python
+import requests
+
+response = requests.get(
+    'https://api.hans0805.me/api/v1/status',
+    headers={'Authorization': 'hans_xxxxx'}
+)
+```
+  </Tab>
+</Tabs>
+
+## 回應
+
+### 成功回應 `200 OK`
+
+```json
+{
+  "data": {
+    "api_active": true,
+    "api_name": "123",
+    "daily_limit": 100,
+    "plan": "free",
+    "plan_name": "\u514d\u8cbb\u65b9\u6848",
+    "remaining_credits": 100
+  },
+  "success": true
+}
+```

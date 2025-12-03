@@ -1,0 +1,44 @@
+---
+title: 身份驗證
+description: API 身份驗證方式說明
+---
+
+## API Key 驗證
+
+所有 API 請求都需要在 Header 中包含 API Key：
+
+```bash
+Authorization: YOUR_API_KEY
+```
+
+## 獲取 API Key
+
+1. 登入控制台 https://api.hans0805.me/
+2. 進入「我的 API」頁面
+3. 點擊「建立新 API」
+
+<Callout type="warn">
+請妥善保管您的 API Key，不要將其暴露在前端代碼或公開的版本控制中。
+</Callout>
+
+## 範例請求
+
+<Tabs items={["cURL", "Python"]}>
+  <Tab value="cURL">
+```bash
+curl https://api.hans0805.me/api/v1/status \
+  -H "Authorization: hans_xxxxx"
+```
+  </Tab>
+
+  <Tab value="Python">
+```python
+import requests
+
+response = requests.get(
+    'https://api.hans0805.me/api/v1/status',
+    headers={'Authorization': 'hans_xxxxx'}
+)
+```
+  </Tab>
+</Tabs>

@@ -1,0 +1,9 @@
+{
+  "title": "MelotTTS",
+  "icon": "AudioLines",
+  "pages": [
+    "index",
+    "api-list",
+    "api-tts"
+  ]
+}

@@ -1,0 +1,68 @@
+---
+title: 生成 TTS 語音
+description: GET /melotts
+---
+
+獲取 API Key 資訊。
+
+## 請求
+
+```
+GET /melotts
+```
+
+
+### 說明
+- 你該使用 `/melotts/languages` 中的 `speakers` 作為`/melotts`中`language`的呼叫參數
+- 1500 字的中文文章生成時間約為 33 秒
+
+### 代幣消耗
+- 每 50 個字消耗 1 點
+- 20 字內不消耗代幣
+
+### 請求範例
+
+<Tabs items={["cURL", "Python"]}>
+  <Tab value="cURL">
+```bash
+curl -X POST https://api.hans0805.me/api/v1/melotts \
+  -H "Authorization: hans_xxxxx" \
+  -H "Content-Type: application/json" \
+  -d '{"text": "Hello!", "language": "en"}' \
+  -o output.wav
+```
+  </Tab>
+
+  <Tab value="Python">
+```python
+import requests
+
+url = "https://api.hans0805.me/api/v1/melotts"
+headers = {
+    "Authorization": "hans_xxxxx",
+    "Content-Type": "application/json"
+}
+
+data = {
+    "text": "Hello!",
+    "language": "en"
+}
+
+response = requests.post(url, json=data, headers=headers)
+
+with open("output.wav", "wb") as f:
+    f.write(response.content)
+
+print("生成完成：output.wav")
+
+```
+  </Tab>
+</Tabs>
+
+## 回應
+
+### 成功回應 `200 OK`
+
+```
+A .wav file
+```

@@ -1,0 +1,64 @@
+---
+title: 快速開始
+description: 開始使用我們的 API
+---
+
+## 簡介
+
+歡迎使用我們的 API！本文檔將幫助您快速上手。
+
+## Base URL
+
+```
+https://api.hans0805.me/api/v1
+```
+
+## 請求格式
+
+所有 API 請求都使用 JSON 格式：
+
+```bash
+curl -X GET https://api.hans0805.me/api/v1/status \
+  -H "Content-Type: application/json" \
+  -H "Authorization: YOUR_API_KEY" \
+  -d '{"name": "John"}'
+```
+
+## 回應格式
+
+成功回應範例：
+
+```json
+{
+  "data": {
+    "api_active": true,
+    "api_name": "123",
+    "daily_limit": 100,
+    "plan": "free",
+    "plan_name": "\u514d\u8cbb\u65b9\u6848",
+    "remaining_credits": 100
+  },
+  "success": true
+}
+```
+
+錯誤回應範例：
+
+```json
+{
+  "error": "Invalid API Key",
+  "success": false
+}
+```
+
+## HTTP 狀態碼
+
+| 狀態碼 | 說明 |
+|--------|------|
+| 200 | 請求成功 |
+| 201 | 資源創建成功 |
+| 400 | 請求參數錯誤 |
+| 401 | 未授權 |
+| 403 | 權限不足 |
+| 404 | 資源不存在 |
+| 500 | 伺服器錯誤 |

@@ -1,0 +1,8 @@
+{
+  "title": "平台服務",
+  "icon": "PanelTop",
+  "pages": [
+    "index",
+    "api-status"
+  ]
+}
