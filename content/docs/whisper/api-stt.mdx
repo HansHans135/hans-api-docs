@@ -1,0 +1,79 @@
+---
+title: 語音轉文字
+description: POST /whisper
+---
+
+## 請求
+
+```
+POST /whisper
+```
+
+
+### 說明
+- 你該使用 `/whisper/models` 中的 `language_modes` 作為`/whisper`中`language_mode`的呼叫參數
+
+### 代幣消耗
+- 每 100kb 消耗 1 點,最低 1 點
+
+### 請求範例
+
+<Tabs items={["cURL", "Python"]}>
+  <Tab value="cURL">
+```bash
+curl -X POST "https://api.hans0805.me/api/v1/whisper" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -F "file=@audio.wav" \
+  -F "language_mode=zh-en"
+```
+  </Tab>
+
+  <Tab value="Python">
+```python
+import requests
+
+api_key=""
+file_path="output.wav"
+language_mode="zh-en"
+
+
+url = "https://api.hans0805.me/api/v1/whisper"
+
+headers = {
+    "Authorization": f"{api_key}"
+}
+
+with open(file_path, 'rb') as f:
+    files = {'file': f}
+    data = {'language_mode': language_mode}
+    
+    response = requests.post(
+        url,
+        headers=headers,
+        files=files,
+        data=data,
+        timeout=3600  # 1 小時超時
+    )
+
+print(response.json())
+
+```
+  </Tab>
+</Tabs>
+
+## 回應
+
+### 成功回應 `200 OK`
+
+```json
+{
+    "data": {
+        "language": "en",
+        "status": "success",
+        "task_id": "5dbc1c84-d4cc-4753-bb39-77c427c1008b",
+        "text": " This is a sample text to be converted into speech using the melody and its hobby.",
+        "timestamp": "2025-12-05T00:09:55.172257",
+    },
+    "success": True,
+}
+```

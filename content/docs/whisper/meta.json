@@ -1,0 +1,9 @@
+{
+  "title": "Whisper",
+  "icon": "FileType",
+  "pages": [
+    "index",
+    "api-list",
+    "api-stt"
+  ]
+}

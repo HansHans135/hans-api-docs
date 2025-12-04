@@ -1,0 +1,59 @@
+---
+title: 語言支援列表
+description: GET /whisper/models
+---
+
+## 請求
+
+```
+GET /whisper/models
+```
+
+### 請求範例
+
+<Tabs items={["cURL", "Python"]}>
+  <Tab value="cURL">
+```bash
+curl -X GET https://api.hans0805.me/api/v1/whisper/models
+```
+  </Tab>
+
+  <Tab value="Python">
+```python
+import requests
+
+response = requests.get(
+    'https://api.hans0805.me/api/v1/whisper/models'
+)
+```
+  </Tab>
+</Tabs>
+
+## 回應
+
+
+### 成功回應 `200 OK`
+
+```json
+{
+  "current_model": "medium",
+  "device": "cpu",
+  "language_modes": [
+    "zh",
+    "zh-en",
+    "en",
+    "ja"
+  ],
+  "max_file_size_mb": 500,
+  "supported_formats": [
+    "mp4",
+    "flac",
+    "m4a",
+    "mp3",
+    "m4v",
+    "webm",
+    "mov",
+    "wav"
+  ]
+}
+```
