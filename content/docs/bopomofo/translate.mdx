@@ -1,0 +1,57 @@
+---
+title: 取得翻譯內容
+description: GET /bopomofo
+---
+
+取得翻譯內容
+
+## 請求
+
+```
+GET /bopomofo
+```
+
+### 代幣消耗
+- 每 50 個字消耗 1 點
+
+### 請求範例
+
+<Tabs items={["cURL", "Python"]}>
+  <Tab value="cURL">
+```bash
+curl -X POST https://api.hans0805.me/api/v1/bopomofo \
+  -H "Authorization: hans_" \
+  -H "Content-Type: application/json" \
+  -d '{"text": "yl3g;4cl3ji3g4su32u, "}'
+```
+  </Tab>
+
+  <Tab value="Python">
+```python
+import requests
+
+response = requests.post(
+"https://api.hans0805.me/api/v1/bopomofo",
+headers=header,
+json={
+"text": "yl3g;4cl3ji3g4su32u, ",
+},
+)
+
+````
+  </Tab>
+</Tabs>
+
+## 回應
+
+### 成功回應 `200 OK`
+
+```json
+{
+    "data": {
+        "probability": 1.0246985300722878e-16,
+        "translation": ["早", "上", "好", "我", "是", "你", "爹"],
+    },
+    "success": True,
+}
+````

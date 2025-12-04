@@ -1,0 +1,8 @@
+{
+  "title": "精靈文翻譯",
+  "icon": "Languages",
+  "pages": [
+    "index",
+    "translate"
+  ]
+}
